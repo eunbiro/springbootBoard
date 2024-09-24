@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Board">
+	<insert id="save" parameterType="board" useGeneratedKeys="true" keyProperty="id">
+	<!-- useGeneraredKey : insert 후 id를 따로 조회하지 않아도 mybatis는 자동 생성 된 값을 바로 반환 해줄 수 있다. -->
+		INSERT INTO 
+			board_table
+			(
+				boardTitle,
+				boardWriter,
+				boardPass,
+				boardContents,
+				fileAttached
+			)
+		VALUES
+			(
+				#{boardTitle},
+				#{boardWriter},
+				#{boardPass},
+				#{boardContents},
+				#{fileAttached}
+			)
+	</insert>
+	
+	<insert id="saveFile" parameterType="boardFile">
+		INSERT INTO
+			board_file_table
+			(
+				originalFileName,
+				storedFileName,
+				boardId
+			)
+		VALUE
+			(
+				#{originalFileName},
+				#{storedFileName},
+				#{boardId}
+			)
+	</insert>
+	
+	<select id="findFile" parameterType="Long" resultType="boardFile">
+		SELECT
+			*
+		FROM
+			board_file_table
+		WHERE
+			boardId			= #{boardId}
+	</select>
+	
+	<select id="findAll" resultType="board">
+		SELECT
+			id,
+			boardTitle,
+			boardWriter,
+			boardHits,
+			date_format(createdAt, "%Y-%m-%d") as createdAt
+		FROM
+			board_table
+		ORDER BY
+			id DESC
+	</select>
+	
+	<update id="updateHits" parameterType="Long">
+		UPDATE
+			board_table
+		SET
+			boardHits 		= boardHits + 1
+		WHERE
+			id 				= #{id}
+	</update>
+	
+	<update id="updateComment" parameterType="Long">
+		UPDATE
+			board_table
+		SET
+			commentAttached	= commentAttached + 1
+		WHERE
+			id 				= #{id}
+	</update>
+	
+	<select id="findById" parameterType="Long" resultType="board">
+		SELECT
+			id,
+			boardTitle,
+			boardWriter,
+			boardPass,
+			boardContents,
+			boardHits,
+			fileAttached,
+			commentAttached,
+			date_format(createdAt, "%Y-%m-%d") as createdAt
+		FROM
+			board_table
+		WHERE
+			id 				= #{id}
+	</select>
+	
+	<update id="update" parameterType="board">
+		UPDATE
+			board_table
+		SET
+			boardTitle		= #{boardTitle},
+			boardContents	= #{boardContents}
+		where
+			id				= #{id}
+	</update>
+	
+	<delete id="delete" parameterType="Long">
+		DELETE
+		FROM
+			board_table
+		WHERE
+			id 				= #{id}
+	</delete>
+	
+	<insert id="saveComment" parameterType="boardComment">
+		INSERT INTO
+			board_comment_table
+			(
+				commentWriter,
+				commentCont,
+				boardId
+			)
+		VALUE
+			(
+				#{commentWriter},
+				#{commentCont},
+				#{boardId}
+			)
+	</insert>
+	
+	<select id="findComment" parameterType="Long" resultType="boardComment">
+		SELECT
+			id,
+			commentWriter,
+			commentCont,
+			boardId,
+			date_format(createdAt, "%y.%m.%d %H:%i") as createdAt
+		FROM
+			board_comment_table
+		WHERE
+			boardId			= #{id}
+		ORDER BY
+			id DESC
+	</select>
+</mapper>

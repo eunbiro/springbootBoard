@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>main</title>
+		<!-- <link rel="stylesheet" href=".css/home.css"> -->
+		<style type="text/css">
+			body {
+				margin: 0;
+			}
+			
+			h2 {
+				text-align: center;
+			}
+		
+			a {
+				text-decoration: none;
+				color: black;
+			}
+			
+			.menu {
+				margin: 0 auto;
+				width: 800px;
+				display: flex;
+				height: 50px;
+				background: lightgray;
+				align-items: center;
+				flex-direction: row;
+				justify-content: space-around;
+			}
+			
+			.item:hover {
+				background: #dddddd;
+			}
+			
+			.item {
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+				padding: 0 10px 0 10px;
+				text-align: center;
+			}
+			
+			.container {
+				margin:0 auto;
+				height: 1000px;
+				width: 800px;
+				text-align: center;
+				padding-top: 50px;
+				display: flex;
+				flex-direction: column;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>hello Spring Boot</h2>
+		<div class="menu">
+			<a href="/save" class="item">글작성</a>
+			<a href="/list" class="item">글목록</a>
+		</div>
+		<div class="container">
+			<a style="height: 50px; font-size: 20px;">게시판 만들기 프로젝트</a>
+			<a style="font-size: 15px;">▼게시판 기능▼</a>
+			<a>1. 게시글 목록조회</a>
+			<a>2. 게시글 작성</a>
+			<a>3. 게시글 파일첨부</a>
+			<a>4. 게시글 조회</a>
+			<a>5. 게시글 수정</a>
+			<a>6. 게시글 삭제</a>
+			<a>7. 게시글 댓글작성</a>
+		</div>
+	</body>
+</html>
