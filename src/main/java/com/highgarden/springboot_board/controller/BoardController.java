@@ -29,9 +29,9 @@ public class BoardController {
 	
 	@PostMapping("/save")
 	public String save(BoardDTO boardDTO) throws IOException { // IOException이 발생할 수 있으므로 예외를 던진다.
-		boardService.save(boardDTO);
+		BoardDTO dto = boardService.save(boardDTO);
 		
-		return "redirect:/list";
+		return "redirect:/" + dto.getId();
 	}
 	
 	@GetMapping("/list")
@@ -81,13 +81,13 @@ public class BoardController {
 	}
 	
 	@PostMapping("/update/{id}")
-	public String update(BoardDTO boardDTO, Model model) {
+	public String update(@PathVariable("id") Long id, BoardDTO boardDTO, Model model) {
 		boardService.update(boardDTO);
 		BoardDTO dto = boardService.findById(boardDTO.getId());
 		
 		model.addAttribute("board", dto);
 		
-		return "detail";
+		return "redirect:/" + id;
 	}
 	
 	@GetMapping("delete/{id}")

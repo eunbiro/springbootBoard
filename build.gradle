@@ -2,10 +2,12 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.9'
 	id 'io.spring.dependency-management' version '1.1.6'
+	id 'war'
 }
 
 group = 'com.highgarden'
 version = '0.0.1-SNAPSHOT'
+
 
 java {
 	toolchain {
@@ -33,6 +35,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 	runtimeOnly 'com.mysql:mysql-connector-j'			// mysql 드라이버
+	/*providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'	// war파일 생성 시 톰캣 라이브러리 미포함*/
+	implementation ('org.springframework.boot:spring-boot-starter-tomcat') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
 }
 
 tasks.named('test') {

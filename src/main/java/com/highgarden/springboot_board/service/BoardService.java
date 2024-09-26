@@ -21,11 +21,11 @@ public class BoardService {
 	private final BoardRepository boardRepository;
 	
 	// 게시글 저장
-	public void save(BoardDTO boardDTO) throws IOException {
+	public BoardDTO save(BoardDTO boardDTO) throws IOException {
 		if (boardDTO.getBoardFile().get(0).isEmpty()) {	// 저장 시 첨부 된 파일 유무 조회
 			// 없으면 File을 0으로
 			boardDTO.setFileAttached(0);
-			boardRepository.save(boardDTO);
+			return boardRepository.save(boardDTO);
 		} else {
 			// 있으면 File을 1로
 			boardDTO.setFileAttached(1);
@@ -46,6 +46,8 @@ public class BoardService {
 				boardFile.transferTo(new File(savePath));
 				boardRepository.saveFile(boardFileDTO);
 			}
+			
+			return saveBoard;
 		}
 	}
 	
