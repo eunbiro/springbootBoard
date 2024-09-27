@@ -136,7 +136,7 @@
 						<td th:text="${board.boardHits}"></td>
 					</tr>
 					<tr>
-						<td class="con" colspan="6" th:text="${board.boardContents}"></td>
+						<td class="con" colspan="6" th:utext="${board.boardContents}"></td>
 					</tr>
 				</table>
 				<table style="border: none;">	
@@ -158,13 +158,13 @@
 						</tr>
 						<tr style="padding: 5px;">
 							<td style="vertical-align: top; width: 130px;">
-								<input class="commWrt" type="text" name="commentWriter" />
+								<input id="writer" class="commWrt" type="text" name="commentWriter" />
 							</td>
 							<td style="vertical-align: middle; width: 546px;">
-								<textarea class="commCon" name="commentCont" style="resize:none; vertical-align: middle;"></textarea>
+								<textarea id="contents" class="commCon" name="commentCont" style="resize:none; vertical-align: middle;"></textarea>
 							</td>
 							<td style="width: 80px;">
-								<button class="commBtn" onclick="saveComment()">작성</button>
+								<button class="commBtn" type="button" onclick="saveComment()">작성</button>
 							</td>
 						</tr>
 					</table>
@@ -190,7 +190,16 @@
 			location.href = "/delete/[[${board.id}]]";
 		}
 		const saveComment = () => {
-			commentForm.submit();
+			const writer = document.getElementById("writer").value;
+			const contents = document.getElementById("contents").value;
+			
+			if (writer.trim() !== "" && contents.trim() !== "") {
+				commentForm.submit();
+			} else if (writer.trim() === "") {
+				alert("작성자를 기입해주세요.")
+			} else if (contents.trim() === "") {
+				alert("내용을 입력해주세요.")
+			}
 		}
 	</script>
 </html>

@@ -62,5 +62,13 @@ public class BoardRepository {
     public void delete(Long id) {
     	sql.delete("Board.delete", id);
     }
+    
+    public void deleteFile(Long id) {
+    	sql.delete("Board.deleteFile", id);
+    }
+    
+    public void deleteComment(Long id) {
+    	sql.delete("Board.deleteComment", id);
+    }
 }
 

@@ -3,93 +3,20 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>list</title>
-		<style>
-		
-			body {
-				margin: 0;
-			}
-			
-			h2 {
-				text-align: center;
-			}
-		
-			a {
-				text-decoration: none;
-				color: black;
-			}
-			
-			.menu {
-				margin: 0 auto;
-				width: 800px;
-				display: flex;
-				height: 50px;
-				background: lightgray;
-				align-items: center;
-				flex-direction: row;
-				justify-content: space-around;
-			}
-			
-			.item:hover {
-				background: #dddddd;
-			}
-			
-			.item {
-				width: 100%;
-				height: 50px;
-				line-height: 50px;
-				padding: 0 10px 0 10px;
-				text-align: center;
-			}
-			
-			table {
-				width: 100%;
-			}
-			
-			table, tr, td, th {
-				border-top: 1px solid black;
-				border-bottom: 1px solid black;
-				border-collapse: collapse;
-			}
-			
-			th, td {
-				padding: 10px;
-			}
-			
-			.btn {
-				border: 1px solid black;
-				border-radius: 5px;
-				width: 60px;
-				height: 30px;
-				line-height: 30px;
-				margin: 5px 5px 5px auto;
-			}
-			
-			.container {
-				margin:0 auto;
-				height: 1000px;
-				width: 800px;
-				text-align: center;
-				padding-top: 50px;
-				display: flex;
-				flex-direction: column;
-			}
-			
-			.tbl {
-				width: 100%;
-			}
-			
-		</style>
+		<link rel="stylesheet" th:href="@{/css/style.css}" />
 	</head>
 	<body>
-		<h2><a href="/">hello Spring Boot</a></h2>
+		<h1><a href="/">hello Spring Boot</a></h1>
 		<div class="menu">
 			<a href="/save" class="item">글작성</a>
 			<a href="/list" class="item">글목록</a>
 		</div>
 		<div class="container">
-			<a href="/save" class="btn">글쓰기</a>
-			<div class="tbl">
-				<table>
+			<div class="btmbtn" style="justify-content: flex-end; text-align: center;">
+				<a href="/save" class="list-btn">글쓰기</a>
+			</div>
+			<div>
+				<table class="list-tbl">
 					<tr>
 						<th>번호</th>
 						<th>제목</th>

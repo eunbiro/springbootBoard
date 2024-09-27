@@ -81,8 +81,8 @@ public class BoardController {
 	}
 	
 	@PostMapping("/update/{id}")
-	public String update(@PathVariable("id") Long id, BoardDTO boardDTO, Model model) {
-		boardService.update(boardDTO);
+	public String update(@PathVariable("id") Long id, BoardDTO boardDTO, Model model) throws IOException {
+		boardService.update(boardDTO, id);
 		BoardDTO dto = boardService.findById(boardDTO.getId());
 		
 		model.addAttribute("board", dto);

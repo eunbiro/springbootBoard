@@ -115,6 +115,22 @@
 			id 				= #{id}
 	</delete>
 	
+	<delete id="deleteFile" parameterType="Long">
+		DELETE
+		FROM
+			board_file_table
+		WHERE
+			boardId 		= #{id}
+	</delete>
+	
+	<delete id="deleteComment" parameterType="Long">
+		DELETE
+		FROM
+			board_comment_table
+		WHERE
+			boardId 		= #{id}
+	</delete>
+	
 	<insert id="saveComment" parameterType="boardComment">
 		INSERT INTO
 			board_comment_table

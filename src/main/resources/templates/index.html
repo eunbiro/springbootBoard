@@ -3,57 +3,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>main</title>
-		<!-- <link rel="stylesheet" href=".css/home.css"> -->
-		<style type="text/css">
-			body {
-				margin: 0;
-			}
-			
-			h2 {
-				text-align: center;
-			}
-		
-			a {
-				text-decoration: none;
-				color: black;
-			}
-			
-			.menu {
-				margin: 0 auto;
-				width: 800px;
-				display: flex;
-				height: 50px;
-				background: lightgray;
-				align-items: center;
-				flex-direction: row;
-				justify-content: space-around;
-			}
-			
-			.item:hover {
-				background: #dddddd;
-			}
-			
-			.item {
-				width: 100%;
-				height: 50px;
-				line-height: 50px;
-				padding: 0 10px 0 10px;
-				text-align: center;
-			}
-			
-			.container {
-				margin:0 auto;
-				height: 1000px;
-				width: 800px;
-				text-align: center;
-				padding-top: 50px;
-				display: flex;
-				flex-direction: column;
-			}
-		</style>
+		<link rel="stylesheet" th:href="@{/css/style.css}" />
 	</head>
 	<body>
-		<h2>hello Spring Boot</h2>
+		<h1><a>hello Spring Boot</a></h1>
 		<div class="menu">
 			<a href="/save" class="item">글작성</a>
 			<a href="/list" class="item">글목록</a>

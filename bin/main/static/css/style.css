@@ -1,0 +1,265 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+}
+
+h1 {
+	text-align: center;
+}
+
+h1 > a {
+	color: rgb(99, 99, 99);
+}
+
+a {
+	text-decoration: none;
+	color: rgb(99, 99, 99);
+}
+
+.menu {
+	margin: 0 auto;
+	width: 800px;
+	display: flex;
+	height: 50px;
+	background: rgb(254, 237, 180);
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-around;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.menu > a {
+	color: rgb(99, 99, 99);
+}
+
+.item:hover {
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background: rgb(254, 247, 217);
+}
+
+.item {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 10px 0 10px;
+	text-align: center;
+}
+
+.container {
+	margin:0 auto;
+	height: 1000px;
+	width: 800px;
+	text-align: center;
+	padding-top: 50px;
+	display: flex;
+	flex-direction: column;
+}
+
+.form-box {
+	display: flex;
+	flex-direction: column;
+}
+
+table, tr, td, th {
+	border-top: 1px solid rgb(99, 99, 99);
+	border-bottom: 1px solid rgb(99, 99, 99);
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px;
+}
+
+
+/* detail */
+.btmbtn {
+	text-align: right;
+	margin: 5px 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.btmbtn > div > button {
+	background: rgb(254, 237, 180);
+	border: 2px solid rgb(255, 234, 166);
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	color: rgb(99, 99, 99);
+	width: 60px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.list-tbl {
+	width: 100%;
+}
+
+.list-btn {
+	background: rgb(254, 237, 180);
+	border: 2px solid rgb(255, 234, 166);
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	color: rgb(99, 99, 99);
+	width: 60px;
+	height: 30px;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+.commContainer {
+	margin: 10px 0;
+	width: 100%;
+}
+
+.commBtn {
+	height: 65px;
+	width: 70px;
+	color: rgb(99, 99, 99);
+	border-radius: 5px;
+	border: 1px outset rgb(200, 200, 200);
+}
+
+.commCon {
+	border-radius: 5px;
+	border: 1px inset rgb(200, 200, 200);
+	width: 536px;
+	height: 60px;
+}
+
+.commWrt {
+	height: 20px;
+	width: 120px;
+	margin-top: 10px;
+	border-radius: 5px;
+	border: 1px inset rgb(200, 200, 200);
+}
+
+.title {
+	font-size: 25px;
+	font-weight: bold;
+	text-align: left;
+}
+
+.title2 {
+	width: 800px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-top: 1.5px solid rgb(99, 99, 99);
+	border-bottom: 1.5px solid rgb(99, 99, 99);
+}
+
+.title2 > div:nth-child(1), 
+.title2 > div:nth-child(2),
+.title2 > div:nth-child(3) {
+	border-right: 1px dashed rgb(210, 210, 210);
+}
+
+.ti-con2 {
+	height: 40px;
+	line-height: 40px;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 10px;
+}
+
+.con {
+	height: 400px;
+	text-align: left;
+	display: flex;
+	align-items: center;
+}
+
+
+/* save */
+
+.save-title {
+	height: 40px;
+	width: 800px;
+	display: flex;
+}
+
+.save-title > a:nth-child(1) {
+	text-align: center;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.save-midtitle {
+	width: 400px;
+	display: flex;
+	height: 40px;
+	line-height: 40px;
+}
+
+.save-midtitle > div:nth-child(1) {
+	text-align: center;
+	width: 100px;
+	vertical-align: middle;
+}
+
+.save-contitle {
+	text-align: center;
+	width: 100px;
+	vertical-align: middle;
+}
+
+.save-ipt1 {
+	width: 700px;
+}
+
+.save-ipt1 > input {
+	width: 660px;
+	height: 22px;
+	line-height: 22px;
+}
+
+.save-ipt2 {
+	width: 300px;
+}
+
+.save-ipt2 > input {
+	width: 260px;
+	height: 22px;
+	line-height: 22px;
+}
+
+.save-ipt3 {
+	width: 700px;
+}
+
+.save-ipt3 > input {
+	width: 660px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid rgb(99, 99, 99);
+}
+
+.save-cont {
+	width: 700px;
+	height: 400px;
+}
+
+.save-cont > textarea {
+	width: 660px;
+	height: 400px;
+	resize: none;
+}
+
+.save-btn {
+	background: rgb(254, 237, 180);
+	border: 2px solid rgb(255, 234, 166);
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	color: rgb(99, 99, 99);
+	width: 60px;
+	height: 30px;
+	cursor: pointer;
+}
